@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CutPic - Image Reducer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+
+    <div id="intro-animation">
+        <h1 class="neon-text">CutPic</h1>
+        <p class="neon-text">created by Sadman Mahboob Alvi</p>
+    </div>
+
+    <main id="main-content" style="display: none;">
+
+        <div class="top-bar">
+            <div id="datetime"></div>
+            <button id="theme-toggle">Toggle Dark Mode</button>
+        </div>
+
+        <section class="reducer-container">
+            <h1>CutPic Image Reducer</h1>
+
+            <div class="upload-area">
+                <label for="image-upload" class="upload-label">
+                    <span>Insert Image</span>
+                    <input type="file" id="image-upload" accept=".jpg, .jpeg, .png">
+                </label>
+                <p id="file-status">Max size: 4MB (jpg/jpeg/png)</p>
+            </div>
+
+            <img id="uploaded-image" style="display: none;" alt="Uploaded Image Preview">
+
+            <div id="regulation-options" style="display: none;">
+                <h2>Change Regulation</h2>
+
+                <div class="input-group">
+                    <label for="new-width">New Width (px):</label>
+                    <input type="number" id="new-width" value="0">
+                </div>
+
+                <div class="input-group">
+                    <label for="new-height">New Height (px):</label>
+                    <input type="number" id="new-height" value="0">
+                </div>
+
+                <div class="input-group">
+                    <label for="new-size-mb">Target Size (MB):</label>
+                    <input type="number" id="new-size-mb" step="0.1" value="0.5">
+                </div>
+
+                <canvas id="image-canvas" style="display: none;"></canvas>
+
+                <button id="download-btn" disabled>Crop and Download</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

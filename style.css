@@ -1,0 +1,237 @@
+/* --- Global & Typography --- */
+:root {
+    /* Light Theme  */
+    --light-bg: #FFFFFF;     /* White */
+    --light-text: #333333;
+    --light-primary: #A3E4D7; /* Light Green */
+    --light-accent: #3498DB;
+}
+
+.dark-theme {
+    /* Dark Theme  */
+    --dark-bg: #1A1A1A;      /* Black */
+    --dark-text: #F0F0F0;
+    --dark-primary: #C0392B; /* Dark Red */
+    --dark-accent: #E74C3C;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Light Theme Colors  */
+.light-theme {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+}
+
+/* Dark Theme Colors  */
+.dark-theme {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+/* --- 1. Animation Page Styles  --- */
+#intro-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s;
+}
+
+/* Neon Theme/Colored Text  */
+.neon-text {
+    font-size: 4rem;
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #0fa,
+        0 0 82px #0fa,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
+    animation: flicker 1.5s infinite alternate;
+}
+
+.neon-text + p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #fff;
+    text-shadow: 0 0 5px #f0f, 0 0 10px #f0f, 0 0 15px #f0f;
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        text-shadow:
+            0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff,
+            0 0 42px #0fa, 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+    }
+    20%, 24%, 55% {
+        opacity: 0.3;
+        text-shadow: none;
+    }
+}
+
+
+/* --- 2. Main Content Styles --- */
+#main-content {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    margin: 40px auto;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid currentColor;
+    margin-bottom: 30px;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: var(--light-primary);
+    color: var(--light-text);
+}
+
+.dark-theme #theme-toggle {
+    background-color: var(--dark-primary);
+    color: var(--dark-text);
+}
+
+/* Reducer Container */
+.reducer-container {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: var(--light-bg); /* Use specific background for contrast */
+}
+
+.dark-theme .reducer-container {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    background: #2A2A2A; /* Slightly lighter black for the card */
+}
+
+/* Upload Area */
+.upload-area {
+    margin: 20px 0;
+    padding: 30px;
+    border: 3px dashed var(--light-primary);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.dark-theme .upload-area {
+    border: 3px dashed var(--dark-primary);
+}
+
+.upload-label {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--light-accent);
+}
+
+.dark-theme .upload-label {
+    color: var(--dark-accent);
+}
+
+#image-upload {
+    display: none; /* Hide the default file input */
+}
+
+#uploaded-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Regulation Options */
+#regulation-options {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 40%;
+    background-color: inherit;
+    color: inherit;
+}
+
+/* Buttons */
+#download-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--light-primary);
+    color: var(--light-text);
+    transition: background-color 0.3s;
+}
+
+#download-btn:hover:not(:disabled) {
+    background-color: #7DCEA0; /* A darker light green */
+}
+
+#download-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666;
+}
+
+.dark-theme #download-btn {
+    background-color: var(--dark-primary);
+    color: var(--dark-text);
+}
+
+.dark-theme #download-btn:hover:not(:disabled) {
+    background-color: #A93226; /* A darker dark red */
+}
